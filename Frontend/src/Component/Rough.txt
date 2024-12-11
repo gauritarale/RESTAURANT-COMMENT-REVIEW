@@ -1,0 +1,64 @@
+  /*
+ return (
+    <>
+      <Navbar/>
+      <div style={{"display":"flex"}}>
+      <ReceipeReviewCard name="Haldiram"/>
+      <ReceipeReviewCard name="Raghuvir"/>
+      <ReceipeReviewCard name="Bombaywala"/>
+      <ReceipeReviewCard name="Pasta & Pita"/>
+      </div>
+      <div style={{"display":"flex"}}>
+      <ReceipeReviewCard name="Pasta Party"/>
+      <ReceipeReviewCard name="Burger Bash"/>
+      <ReceipeReviewCard name="The Garden Table"/>
+      <ReceipeReviewCard name="Tandoor Table"/>
+      </div>
+    </>
+    // <Containt/>
+    // <Footer/>
+    
+
+  )*/
+
+  
+  //  return(
+  //   <Router>
+  //   {/* <nav>
+  //     <ul>
+  //       <li>
+  //         <Link to="/">Home</Link>
+  //       </li>
+  //       <li>
+  //         <Link to="/about">About</Link>
+  //       </li>
+  //       <li>
+  //         <Link to="/contact">Contact</Link>
+  //       </li>
+  //     </ul>
+  //   </nav> */}
+
+  //       HOMEEEEEEEE
+
+  //   <Routes>
+  //     {/* <Route path="/" element={<Home />} />
+  //     <Route path="/about" element={<About />} />
+  //     <Route path="/contact" element={<Contact />} /> */}
+  //   </Routes>
+  // </Router>
+
+
+
+
+
+
+  //   //   <>
+  // //   <Navbar/>
+  // //   <div style={{"display":"flex"}}>
+  // //   <restaurant />
+  // //   </div>
+  // //   <div className="App">
+  // //     <RestaurantPage />
+  // //   </div>
+  // //  </>
+  //  );

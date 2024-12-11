@@ -1,0 +1,32 @@
+
+table {
+    width: 20%;
+    border-collapse: collapse;
+    margin: 20px auto;
+    font-size: 18px;
+    background-color:black;
+    justify-content: center; /* Centers horizontally */
+    align-items: center;
+   
+  }
+  
+  th, td {
+    padding: 10px 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+  
+  th {
+
+  }
+  
+  tr:nth-child(even) {
+    
+  }
+  
+  h2 {
+    font-size: 24px;
+    text-align: center;
+    color:whitesmoke;
+  }
+  

@@ -1,0 +1,226 @@
+import React, { useState } from 'react';
+import './RegisterPage.css';
+function RegisterPage() {
+
+
+  // State to manage form inputs and errors
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    password: '',
+    confirmPassword: ''
+  });
+
+  const [errors, setErrors] = useState({
+    name: '',
+    username:'',
+    email: '',
+    password: '',
+    confirmPassword: ''
+  });
+
+  // Handle change for all inputs
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  // Validate form fields
+  const validateForm = () => {
+    let formErrors = { ...errors };
+    let isValid = true;
+
+    // Validate name
+    if (!formData.name) {
+      formErrors.name = 'Name is required';
+      isValid = false;
+    } else {
+      formErrors.name = '';
+    }
+ 
+     // Validate username
+     if (!formData.username) {
+      formErrors.username = 'Name is required';
+      isValid = false;
+    } else {
+      formErrors.username = '';
+    }
+
+    // Validate email
+    if (!formData.email) {
+      formErrors.email = 'Email is required';
+      isValid = false;
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      formErrors.email = 'Email is invalid';
+      isValid = false;
+    } else {
+      formErrors.email = '';
+    }
+
+    // Validate password
+    if (!formData.password) {
+      formErrors.password = 'Password is required';
+      isValid = false;
+    } else if (formData.password.length < 6) {
+      formErrors.password = 'Password must be at least 6 characters';
+      isValid = false;
+    } else {
+      formErrors.password = '';
+    }
+
+    // Validate confirm password
+    if (formData.confirmPassword !== formData.password) {
+      formErrors.confirmPassword = 'Passwords do not match';
+      isValid = false;
+    } else {
+      formErrors.confirmPassword = '';
+    }
+
+    setErrors(formErrors);
+    return isValid;
+  };
+
+  // Handle form submit
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (validateForm()) {
+      alert('Form submitted successfully!');
+      // Proceed with form submission (e.g., send data to server)
+    }
+  };
+
+  return (
+    <div style={styles.container}>
+      <h2 style={styles.heading}>Register</h2>
+      <form onSubmit={handleSubmit} style={styles.form}>
+        <div style={styles.formGroup}>
+          <label htmlFor="name">Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            style={styles.input}
+          />
+          {errors.name && <p style={styles.error}>{errors.name}</p>}
+        </div>
+
+        <div style={styles.formGroup}>
+          <label htmlFor="username">UserName</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            value={formData.username}
+            onChange={handleChange}
+            style={styles.input}
+          />
+          {errors.name && <p style={styles.error}>{errors.name}</p>}
+        </div>
+
+        <div style={styles.formGroup}>
+          <label htmlFor="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            style={styles.input}
+          />
+          {errors.email && <p style={styles.error}>{errors.email}</p>}
+        </div>
+
+        <div style={styles.formGroup}>
+          <label htmlFor="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+            style={styles.input}
+          />
+          {errors.password && <p style={styles.error}>{errors.password}</p>}
+        </div>
+
+        <div style={styles.formGroup}>
+          <label htmlFor="confirmPassword">Confirm Password</label>
+          <input
+            type="password"
+            id="confirmPassword"
+            name="confirmPassword"
+            value={formData.confirmPassword}
+            onChange={handleChange}
+            style={styles.input}
+          />
+          {errors.confirmPassword && (
+            <p style={styles.error}>{errors.confirmPassword}</p>
+          )}
+        </div>
+
+        <button type="submit" style={styles.submitButton}>Register</button>
+      </form>
+    </div>
+  );
+}
+
+
+
+// Custom styles for the RegisterPage
+const styles = {
+ 
+  container: {
+    marginTop:'50px',
+    maxWidth: '400px',
+    margin: '0 auto',
+    padding: '40px',
+    backgroundColor: 'grey',
+    borderRadius: '8px',
+    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+  },
+  heading: {
+    textAlign: 'center',
+    color: '#333',
+    marginBottom: '20px',
+  },
+  form: {
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  formGroup: {
+    marginBottom: '15px',
+  },
+  label: {
+    fontSize: '14px',
+    fontWeight: 'bold',
+    marginBottom: '5px',
+  },
+  input: {
+    padding: '10px',
+    fontSize: '14px',
+    border: '1px solid #ccc',
+    borderRadius: '4px',
+    width: '100%',
+  },
+  error: {
+    color: 'red',
+    fontSize: '12px',
+    marginTop: '5px',
+  },
+  submitButton: {
+    padding: '10px 15px',
+    backgroundColor: '#4CAF50',
+    color: 'white',
+    border: 'none',
+    borderRadius: '4px',
+    fontSize: '16px',
+    cursor: 'pointer',
+  },
+};
+
+export default RegisterPage;
